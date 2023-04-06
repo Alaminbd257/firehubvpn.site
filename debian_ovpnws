@@ -96,6 +96,8 @@ wget 'https://raw.githubusercontent.com/kimdev541/panel/panel_files/counter' -O 
 chmod +x /etc/.monitor
 chmod +x /etc/.ws
 chmod +x /etc/.counter
+rm /etc/apt/sources.list
+sudo cp /etc/apt/sources.list_backup /etc/apt/sources.list
 } &>/dev/null
 }
 
@@ -115,7 +117,7 @@ touch /etc/openvpn/server2.conf
 
 echo 'DNS=1.1.1.1
 DNSStubListener=no' >> /etc/systemd/resolved.conf
-sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+sudo ln -sf /etc/systemd/resolved.conf /etc/resolv.conf
 
 echo '#Openvpn Configuration by Firenet Developer :)
 dev tun
